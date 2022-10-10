@@ -7,7 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import {
   AppBar, Toolbar, IconButton, Stack, Button, Typography,
-  Box, ListItemButton, Menu, MenuItem, Fade
+  Box, ListItemButton, Avatar, Menu, MenuItem, Fade
 } from "@mui/material"
 import { Drawer } from "@mui/material";
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
@@ -15,7 +15,6 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MessageIcon from '@mui/icons-material/Message';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ImageIcon from '@mui/icons-material/Image';
 import WorkIcon from '@mui/icons-material/Work';
@@ -31,6 +30,9 @@ import { borderRadius } from "@mui/system";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import AirplayIcon from '@mui/icons-material/Airplay';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useTheme } from "@mui/material";
 import { Link } from "react-router-dom"
 const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: boolean, setIsDrawerOpen: any }) => {
@@ -60,93 +62,110 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
   );
   const drawer = (
     <div>
-
       <List>
         <Typography variant="subtitle1">Dashboards</Typography>
-        {['Modern', 'Analytical', 'eCommerce'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <Stack direction="row" alignItems="center">
-              <Link to="sample_route" style={{textDecoration: 'none',color:"#000"}}>
-                <ListItemText primary={text} />
-                </Link>
-              </Stack>
-            </ListItemButton>
-          </ListItem>
-        ))}
+        {[{ type: 'Modern', IconType: AirplayIcon }, { type: 'Analytical', IconType: HistoryEduIcon }, { type: 'eCommerce', IconType: AirplayIcon }]
+          .map(({type,IconType},index) => (
+            <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+                 <ListItem
+                  button>
+                  <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                  <ListItemText primary={type} />
+                </ListItem>
+              </Link>
+
+
+            </ListItem>
+          ))}
       </List>
       <List>
         <Typography variant="subtitle1">APPS</Typography>
-        {['Chat', 'Notes', 'Mail', 'Calender', 'Customers'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-               <Link to="sample_route"style={{textDecoration: 'none',color:"#000"}} >
-                <ListItemText primary={text} />
-                </Link>
-            </ListItemButton>
+        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
+        .map(({type,IconType}, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+
+              <ListItem
+                button>
+               <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small"/>
+                <ListItemText primary={type} />
+              </ListItem>
+            </Link>
+
+
           </ListItem>
         ))}
       </List>
       <List>
         <Typography variant="subtitle1">PAGES</Typography>
-        {['Shop', 'Alert', 'UserProfile', 'QuillEditor', 'TreeView', 'Pricing', 'Typography', 'featherIcons', 'Timeline'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-               <Link to="sample_route" style={{textDecoration: 'none',color:"#000"}}>
-                <ListItemText primary={text} />
-                </Link>
-            </ListItemButton>
+        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
+        .map(({type,IconType}, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+
+              <ListItem
+                button>
+                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                <ListItemText primary={type} />
+              </ListItem>
+            </Link>
+
+
           </ListItem>
         ))}
       </List>
       <List>
         <Typography variant="subtitle1">FORMS</Typography>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-               <Link to="sample_route" style={{textDecoration: 'none',color:"#000"}} >
-                <ListItemText primary={text} />
-                </Link>
-            </ListItemButton>
+        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, 
+        {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
+        .map(({type,IconType }, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+
+              <ListItem
+                button>
+                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                <ListItemText primary={type} />
+              </ListItem>
+            </Link>
+
+
           </ListItem>
         ))}
       </List>
       <List>
         <Typography variant="subtitle1">CHARTS</Typography>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-              <Link to="sample_route" style={{textDecoration: 'none',color:"#000"}} >
-                <ListItemText primary={text}/>
-                </Link>
-            </ListItemButton>
+        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon},
+         {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}].map(({type,IconType}, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+
+              <ListItem
+                button>
+                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small"/>
+                <ListItemText primary={type} />
+              </ListItem>
+            </Link>
+
+
           </ListItem>
         ))}
       </List>
       <List>
         <Typography variant="subtitle1">AUTHENTICATION</Typography>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              {/* <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon> */}
-               <Link to="sample_route" style={{textDecoration: 'none',color:"#000"}} >
-                <ListItemText primary={text} />
-                </Link>
-            </ListItemButton>
+        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon},
+         {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}].map(({type,IconType}, index) => (
+          <ListItem key={index} disablePadding>
+            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+              <ListItem
+                button>
+                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                <ListItemText primary={type} />
+              </ListItem>
+            </Link>
+
+
           </ListItem>
         ))}
       </List>
@@ -292,7 +311,7 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
           </Toolbar>
         </AppBar> */}
         <Drawer
-           variant={isGreaterThanSmallBreakpoint ? "permanent" : "temporary"}
+          variant={isGreaterThanSmallBreakpoint ? "permanent" : "temporary"}
           open={isDrawerOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
