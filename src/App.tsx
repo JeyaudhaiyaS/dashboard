@@ -1,4 +1,4 @@
-import  React,{useState,useEffect,useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -14,26 +14,22 @@ import { Box } from '@mui/material';
 // import Logout from '@mui/icons-material/Logout';
 import NavbarComponent from './components/Navbar';
 import Transaction from "./components/Transaction"
-import  RenderChart from './components/ChartComponent';
-import  Performance  from './components/Performance';
+import RenderChart from './components/ChartComponent';
+import Performance from './components/Performance';
+import Sales from './components/Sales';
+import FooterCard from './components/FooterCard';
+import AppRoutes from './Routes';
+import Landing from './components/Landing';
 export default function App() {
- 
- // };
- const [isDrawerOpen, setIsDrawerOpen] = useState(true)
+
+  // };
+  const [isDrawerOpen, setIsDrawerOpen] = useState(true)
   return (
-   
+
     <div>
-      <NavbarComponent isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen} />
-      
-      <Box sx={{...(isDrawerOpen ? {
-        ml:35
-      }: {ml:2})}}>
-        <Transaction />
-       <RenderChart/> 
-      <Box sx={{mr:2}}>
-       <Performance/>
-       </Box>
-       </Box>
+      <AppRoutes>
+      <Landing/>
+      </AppRoutes>
     </div>
   );
 }

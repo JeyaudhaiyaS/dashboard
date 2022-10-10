@@ -1,6 +1,6 @@
-import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Box, Grid,Typography,Badge } from '@mui/material';
+import React, { useState } from 'react';
+
+import { Box, Grid, Typography, Badge, Stack, Divider } from '@mui/material';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,69 +8,57 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Doughnut } from 'react-chartjs-2';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select'
+import { textAlign } from '@mui/system';
 
-ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      backgroundColor: [
-        "#03C9D7",
-        "#FB9678",
-        "#03C9D7",
-        "#FB9678",
-       
-      ],
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)'
-        
-      ],
-      borderWidth: 1,
-      height:400
-    },
-  ],
-};
+
+
+const data = [
+  { name: 'Group A', value: 400 },
+  { name: 'Group B', value: 300 },
+  { name: 'Group C', value: 300 },
+
+];
+const COLORS = ['#ECF0F2', '#58FCFF', '#FFC5A6'];
 const BasicTable = () => {
   function createData(
     Assigned: string,
     Name: string,
-    priority:string,
+    priority: string,
     Budget: string,
-    
+
   ) {
-    return { Assigned,Name,priority,Budget };
+    return { Assigned, Name, priority, Budget };
   }
 
   const rows = [
-    createData('Sunil Joshi', 'Elite Admin','Low', '$24.k'),
-    createData('Andrew MacDonald','Real Homes WP Theme','High','$34.k'),
-    createData('Christopher Jamil', 'MedicalPro WP Theme','Low', '$55k'),
-    createData('Nirav Joshi', 'Hosting Press HTML', 'Critical','$2.4k'),
-    createData('Micheal Doe', 'Helping Hands Theme', 'Moderate','$3.9k'),
-    createData('Sunil Joshi', 'Elite Admin','Low', '$24.k'),
-    createData('Andrew MacDonald','Real Homes WP Theme','High','$34.k'),
-    createData('Christopher Jamil', 'MedicalPro WP Theme','Low', '$55k'),
-    createData('Nirav Joshi', 'Hosting Press HTML', 'Critical','$2.4k'),
-    createData('Micheal Doe', 'Helping Hands Theme', 'Moderate','$3.9k'),
+    createData('Sunil Joshi', 'Elite Admin', 'Low', '$24.k'),
+    createData('Andrew', 'Real Homes WP Theme', 'High', '$34.k'),
+    createData('Christopher', 'MedicalPro WP Theme', 'Low', '$55k'),
+    createData('Nirav', 'Hosting Press HTML', 'Critical', '$2.4k'),
+    createData('Micheal', 'Helping Hands Theme', 'Moderate', '$3.9k'),
+    createData('Sunil Joshi', 'Elite Admin', 'Low', '$24.k'),
+    createData('Andrew ', 'Real Homes WP Theme', 'High', '$34.k'),
+    createData('Christopher ', 'MedicalPro WP Theme', 'Low', '$55k'),
+    createData('Nirav', 'Hosting Press HTML', 'Critical', '$2.4k'),
+    createData('Micheal', 'Helping Hands Theme', 'Moderate', '$3.9k'),
   ];
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} size="small" aria-label="simple table">
+      <Table sx={{ minWidth: 700, p: 4 }} padding="normal" size="small" aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell sx={{color:"#777E89"}}>Name</TableCell>
-            <TableCell align="right" sx={{color:"#777E89"}}>Assigned</TableCell>
-            <TableCell align="right" sx={{color:"#777E89"}}>Priority</TableCell>
-            <TableCell align="right" sx={{color:"#777E89"}}>Budget</TableCell>
-            
+            <TableCell sx={{ color: "#777E89" }}>Name</TableCell>
+            <TableCell align="right" sx={{ color: "#777E89" }}>Assigned</TableCell>
+            <TableCell align="right" sx={{ color: "#777E89" }}>Priority</TableCell>
+            <TableCell align="right" sx={{ color: "#777E89" }}>Budget</TableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -82,10 +70,10 @@ const BasicTable = () => {
               <TableCell component="th" scope="row">
                 {row.Assigned}
               </TableCell>
-              <TableCell align="right" sx={{color:"#777E89"}}>{row.Name}</TableCell>
+              <TableCell align="right" sx={{ color: "#777E89" }}>{row.Name}</TableCell>
               <TableCell align="right"><Badge badgeContent={row.priority} color="warning"></Badge></TableCell>
               <TableCell align="right">{row.Budget}</TableCell>
-             
+
             </TableRow>
           ))}
         </TableBody>
@@ -93,22 +81,84 @@ const BasicTable = () => {
     </TableContainer>
   )
 }
+
 export default function Performance() {
+  const [date, setDate] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setDate(event.target.value);
+  };
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} md={5} sx={{height:200,mb:{xs:10,sm:10,md:0}}}>
-        <Box sx={{height:450,backgroundColor:"#fff"}}>
-          <Doughnut data={data} options={{
-          responsive: true,
-          maintainAspectRatio: true,
-        }} />
+    <Grid container spacing={4}>
+      <Grid item xs={12} sm={12} md={4} sx={{ mb: { xs: 10, sm: 10, md: 0 } }}>
+        <Box sx={{ width: "100%", height: 400, backgroundColor: "#fff", p: 1 }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2 }}>
+            <Typography variant='subtitle1' sx={{ fontWeight: "bold" }}>Total Sales</Typography>
+            <FormControl size="small">
+              <Select
+                value={date}
+                onChange={handleChange}
+                displayEmpty
+                inputProps={{ 'aria-label': 'Without label' }}
+              >
+                <MenuItem value="">
+                  <em>March,2021</em>
+                </MenuItem>
+                <MenuItem value={10}>May,2021</MenuItem>
+                <MenuItem value={20}>April,2021</MenuItem>
+                <MenuItem value={30}>July,2022</MenuItem>
+              </Select>
+            </FormControl>
+          </Stack>
+          <Divider />
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: 3 }}>
+            <Typography variant='subtitle2'>Sales Yearly</Typography>
+            <Typography variant='subtitle1' sx={{ fontWeight: "bold" }}>8,364,398</Typography>
+          </Stack>
+          <ResponsiveContainer>
+            <PieChart>
+              <Tooltip />
+              <Pie
+                data={data}
+                cx={120}
+                cy={200}
+                innerRadius={60}
+                outerRadius={80}
+                fill="#8884d8"
+                paddingAngle={0}
+                dataKey="value">
+                {data.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              {/* <Legend wrapperStyle={{ bottom: 120, left: 25 }} /> */}
+            </PieChart>
+          </ResponsiveContainer>
         </Box>
+
       </Grid>
-      <Grid item xs={12} md={7}>
-        <Box > 
+      <Grid item xs={12} md={8}>
+        <Box>
           <Paper>
-            <Typography variant='subtitle1' sx={{fontWeight:"bold", p:2}}>Product Performance</Typography>
-          <BasicTable />
+            <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{pr:2}}>
+              <Typography variant='subtitle1' sx={{ fontWeight: "bold", p: 2 }}>Product Performance</Typography>
+              <FormControl size="small">
+                <Select
+                  value={date}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ 'aria-label': 'Without label' }}
+                >
+                  <MenuItem value="">
+                    <em>March,2021</em>
+                  </MenuItem>
+                  <MenuItem value={10}>May,2021</MenuItem>
+                  <MenuItem value={20}>April,2021</MenuItem>
+                  <MenuItem value={30}>July,2022</MenuItem>
+                </Select>
+              </FormControl>
+            </Stack>
+            <BasicTable />
           </Paper>
         </Box>
       </Grid>

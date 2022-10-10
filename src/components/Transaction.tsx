@@ -26,7 +26,7 @@ const Transaction = () => {
   }
   ]
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{justifyContent:"center"}}>
       <Grid item xs={12} sm={12} md={5}>
       <Card sx={{ display: "flex",height:"200px",justifyContent:"space-between"}}>
         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -38,7 +38,7 @@ const Transaction = () => {
         </Box>
         <CardMedia
           component="img"
-          sx={{ width:200, objectFit: "cover" }}
+          sx={{ width:200,height:200, objectFit: "cover" }}
           image={congratsImg}
           alt="Live from space album cover"
         ></CardMedia>
