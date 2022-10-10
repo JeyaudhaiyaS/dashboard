@@ -65,10 +65,10 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
       <List>
         <Typography variant="subtitle1">Dashboards</Typography>
         {[{ type: 'Modern', IconType: AirplayIcon }, { type: 'Analytical', IconType: HistoryEduIcon }, { type: 'eCommerce', IconType: AirplayIcon }]
-          .map(({type,IconType},index) => (
+          .map(({ type, IconType }, index) => (
             <ListItem key={index} disablePadding>
-            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
-                 <ListItem
+              <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+                <ListItem
                   button>
                   <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
                   <ListItemText primary={type} />
@@ -81,69 +81,69 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
       </List>
       <List>
         <Typography variant="subtitle1">APPS</Typography>
-        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
-        .map(({type,IconType}, index) => (
-          <ListItem key={index} disablePadding>
-            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon }, { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }]
+          .map(({ type, IconType }, index) => (
+            <ListItem key={index} disablePadding>
+              <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
 
-              <ListItem
-                button>
-               <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small"/>
-                <ListItemText primary={type} />
-              </ListItem>
-            </Link>
+                <ListItem
+                  button>
+                  <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                  <ListItemText primary={type} />
+                </ListItem>
+              </Link>
 
 
-          </ListItem>
-        ))}
+            </ListItem>
+          ))}
       </List>
       <List>
         <Typography variant="subtitle1">PAGES</Typography>
-        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
-        .map(({type,IconType}, index) => (
-          <ListItem key={index} disablePadding>
-            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon }, { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }]
+          .map(({ type, IconType }, index) => (
+            <ListItem key={index} disablePadding>
+              <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
 
-              <ListItem
-                button>
-                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
-                <ListItemText primary={type} />
-              </ListItem>
-            </Link>
+                <ListItem
+                  button>
+                  <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                  <ListItemText primary={type} />
+                </ListItem>
+              </Link>
 
 
-          </ListItem>
-        ))}
+            </ListItem>
+          ))}
       </List>
       <List>
         <Typography variant="subtitle1">FORMS</Typography>
-        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, 
-        {type:'Mail',IconType:ChatBubbleOutlineIcon}, {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}]
-        .map(({type,IconType }, index) => (
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon },
+        { type: 'Mail', IconType: ChatBubbleOutlineIcon }, { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }]
+          .map(({ type, IconType }, index) => (
+            <ListItem key={index} disablePadding>
+              <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
+
+                <ListItem
+                  button>
+                  <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
+                  <ListItemText primary={type} />
+                </ListItem>
+              </Link>
+
+
+            </ListItem>
+          ))}
+      </List>
+      <List>
+        <Typography variant="subtitle1">CHARTS</Typography>
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon },
+        { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }].map(({ type, IconType }, index) => (
           <ListItem key={index} disablePadding>
             <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
 
               <ListItem
                 button>
                 <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small" />
-                <ListItemText primary={type} />
-              </ListItem>
-            </Link>
-
-
-          </ListItem>
-        ))}
-      </List>
-      <List>
-        <Typography variant="subtitle1">CHARTS</Typography>
-        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon},
-         {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}].map(({type,IconType}, index) => (
-          <ListItem key={index} disablePadding>
-            <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
-
-              <ListItem
-                button>
-                <IconType sx={{ mr: 2, color: "#717171" }} fontSize="small"/>
                 <ListItemText primary={type} />
               </ListItem>
             </Link>
@@ -154,8 +154,8 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
       </List>
       <List>
         <Typography variant="subtitle1">AUTHENTICATION</Typography>
-        {[{type:'Chat',IconType:ChatBubbleOutlineIcon}, {type:'Notes',IconType:HistoryEduIcon}, {type:'Mail',IconType:ChatBubbleOutlineIcon},
-         {type:'Calender',IconType:HistoryEduIcon},{type:'Customers',IconType:AirplayIcon}].map(({type,IconType}, index) => (
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon },
+        { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }].map(({ type, IconType }, index) => (
           <ListItem key={index} disablePadding>
             <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
               <ListItem
@@ -200,16 +200,22 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
               <ShoppingCartIcon />
             </IconButton>
             <IconButton>
-              <MessageIcon />
+              <Badge sx={{
+                "& .MuiBadge-badge": {
+                  backgroundColor: "#03C9D7"
+                }
+              }} variant="dot">
+                <MessageIcon />
+              </Badge>
             </IconButton>
             <IconButton>
               <Badge sx={{
                 "& .MuiBadge-badge": {
-                  color: "lightgreen",
-                  backgroundColor: "green"
+                  backgroundColor: "#FB9678"
                 },
-                mr: 1
-              }} variant="dot">
+                mr: 0.5
+              }}
+                variant="dot">
                 <NotificationsNoneIcon />
 
               </Badge>
