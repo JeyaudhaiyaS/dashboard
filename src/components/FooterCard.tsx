@@ -190,7 +190,7 @@ const FooterCard = () => {
                                 }}
                             >
                                 <Area type="monotone" dataKey="uv" stroke="#27D1DD" fill="#F2FCFD" strokeWidth={2} />
-                                <Tooltip />
+                                <Tooltip contentStyle={{ backgroundColor: "rgba(0, 0, 0, 0.7)", border: "1px solid rgba(0, 0, 0, 0.5)" }} />
                             </AreaChart>
                         </ResponsiveContainer>
                     </Box>

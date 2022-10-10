@@ -100,7 +100,7 @@ const Sales = () => {
               <CartesianGrid horizontal={false} vertical={false} />
               <XAxis dataKey="name" />
               <YAxis axisLine={false} />
-              <Tooltip />
+              <Tooltip contentStyle={{ backgroundColor: "rgba(0, 0, 0, 0.7)", border: "1px solid rgba(0, 0, 0, 0.5)" }}/>
               <Legend wrapperStyle={{ top: 0, left: 30 }} />
               <Bar dataKey="pixel" fill="#03C9D7" />
               <Bar dataKey="ample" fill="#FB9678" />

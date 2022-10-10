@@ -117,7 +117,7 @@ export default function Performance() {
           </Stack>
           <ResponsiveContainer>
             <PieChart>
-              <Tooltip />
+              <Tooltip contentStyle={{ backgroundColor: "rgba(0, 0, 0, 0.7)", border: "1px solid rgba(0, 0, 0, 0.5)" }} />
               <Pie
                 data={data}
                 cx={120}

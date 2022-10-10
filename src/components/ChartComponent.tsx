@@ -292,7 +292,9 @@ export default function RenderChart() {
                 <CartesianGrid horizontal={false} vertical={false} />
                 <XAxis dataKey="name" axisLine={false} tick={false} />
                 <YAxis axisLine={false} tick={false} />
-                <Tooltip contentStyle={{ backgroundColor: "rgba(0, 0, 0, 0.87)", border: "none" }} wrapperStyle={{ backgroundColor: "rgba(0, 0, 0, 0.87)", color: "#E8E8E8" }} content={<CustomTooltip />} />
+                <Tooltip contentStyle={{ backgroundColor: "rgba(0, 0, 0, 0.87)", border: "none" }} wrapperStyle={{ backgroundColor: "rgba(0, 0, 0, 0.87)", color: "#E8E8E8" }}
+                //  content={<CustomTooltip />}
+                 />
                 <Legend />
                 <Line type="monotone" dataKey="pv" stroke='#fff' strokeWidth={2} activeDot={{ r: 8 }} />
               </LineChart>
