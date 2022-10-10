@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-const RenderIcon = ( Props : {i:number}) => {
+const RenderIcon = () => {
   return (
     <div>RenderIcon</div>
   )
