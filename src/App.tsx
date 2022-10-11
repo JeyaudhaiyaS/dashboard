@@ -20,15 +20,18 @@ import Sales from './components/Sales';
 import FooterCard from './components/FooterCard';
 import AppRoutes from './Routes';
 import Landing from './components/Landing';
+
+
 export default function App() {
 
   // };
   const [isDrawerOpen, setIsDrawerOpen] = useState(true)
+ 
   return (
 
     <div>
       <AppRoutes>
-      <Landing/>
+       <Landing/>
       </AppRoutes>
     </div>
   );

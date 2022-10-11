@@ -67,9 +67,10 @@ const Sales = () => {
       <Grid item xs={12} sm={12} md={6}>
         <Box sx={{ backgroundColor: "#fff",p:3 }}>
           <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }} >
-            <Typography gutterBottom variant="subtitle1" sx={{ fontSize: 16, fontWeight: "medium" }}>
-              Weekly Stats
+            <Typography gutterBottom variant="subtitle1">
+              Daily Activities
             </Typography>
+            <Typography variant='body1'>MyTitle</Typography>
             <MoreHorizIcon />
           </Stack>
           <Stepper

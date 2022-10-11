@@ -81,7 +81,8 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
       </List>
       <List>
         <Typography variant="subtitle1">APPS</Typography>
-        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon }, { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }]
+        {[{ type: 'Chat', IconType: ChatBubbleOutlineIcon }, 
+        { type: 'Notes', IconType: HistoryEduIcon }, { type: 'Mail', IconType: ChatBubbleOutlineIcon }, { type: 'Calender', IconType: HistoryEduIcon }, { type: 'Customers', IconType: AirplayIcon }]
           .map(({ type, IconType }, index) => (
             <ListItem key={index} disablePadding>
               <Link to="sample_route" style={{ textDecoration: 'none', color: "#000000de" }}>
@@ -265,7 +266,7 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
                 />
                 <Box sx={{ mb: 2 }}>
                   <Typography variant='subtitle2' sx={{ fontWeight: 'bold' }}> Julia Roberts</Typography>
-                  <Typography variant='body1' color='text.secondary' sx={{ fontSize: 12 }}> Administrator</Typography>
+                  <Typography variant='body1' color='text.secondary'> Administrator</Typography>
                   <Stack direction="row" alignItems="center" gap={1}>
                     <MailOutlineIcon fontSize="small" />
                     <Typography variant="body1" color='text.secondary' sx={{ fontSize: 12 }}>info@flexy.com</Typography>
@@ -317,8 +318,9 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
           </Toolbar>
         </AppBar> */}
         <Drawer
-          variant={isGreaterThanSmallBreakpoint ? "permanent" : "temporary"}
+          variant={isGreaterThanSmallBreakpoint ? "persistent" : "temporary"}
           open={isDrawerOpen}
+          // containerStyle={{height: 'calc(100% - 64px)', top: 64}}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
@@ -328,6 +330,7 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
               top: "12%",
               left: "2%",
               width: 220,
+              height:550,
               boxSizing: 'border-box',
               borderRadius: 4,
               backgroundColor: "rgb(255, 255, 255)",
