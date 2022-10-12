@@ -330,7 +330,7 @@ const NavbarComponent = ({ isDrawerOpen, setIsDrawerOpen }: { isDrawerOpen: bool
               top: "12%",
               left: "2%",
               width: 220,
-              height:550,
+              height:700,
               boxSizing: 'border-box',
               borderRadius: 4,
               backgroundColor: "rgb(255, 255, 255)",

@@ -70,7 +70,7 @@ const Sales = () => {
             <Typography gutterBottom variant="subtitle1">
               Daily Activities
             </Typography>
-            <Typography variant='body1'>MyTitle</Typography>
+            
             <MoreHorizIcon />
           </Stack>
           <Stepper
@@ -78,7 +78,7 @@ const Sales = () => {
           >
             {steps.map((label) => (
               <Step key={label}>
-                <StepLabel>{label}</StepLabel>
+                <StepLabel><Typography gutterBottom variant="caption">{label}</Typography></StepLabel>
               </Step>
             ))}
           </Stepper>

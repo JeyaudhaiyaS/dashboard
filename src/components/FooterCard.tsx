@@ -98,7 +98,7 @@ const FooterCard = () => {
     return (
        
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={12} md={4}>
+                <Grid item xs={12} sm={12} md={6} lg={4}>
                     <Card sx={{ p: 2, height: 470 }}>
                         <CardMedia
                             component="img"
@@ -146,25 +146,14 @@ const FooterCard = () => {
                                     height="50"
                                     image={AvatarTwo}
                                 />
-                                <CardMedia
-                                    component="img"
-                                    alt="green iguana"
-                                    height="50"
-                                    image={AvatarThree}
-                                />
-                                <CardMedia
-                                    component="img"
-                                    alt="green iguana"
-                                    height="50"
-                                    image={AvatarTwo}
-                                />
+                                
                             </Stack>
                             <IconButton><ChatBubbleOutlineIcon /></IconButton>
                         </Stack>
                     </Card>
                 </Grid>
-                <Grid item xs={12} sm={12} md={4}>
-                    <Card >
+                <Grid item xs={12} sm={12} md={6} lg={4}>
+                    <Card sx={{p:2, height: 470 }}>
                         <CardContent>
                             <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }} >
                                 <Typography gutterBottom variant="h5">
@@ -215,7 +204,7 @@ const FooterCard = () => {
                         </Box>
                     </Card>
                 </Grid>
-                <Grid item xs={12} sm={12} md={4}>
+                <Grid item xs={12} sm={12} md={6} lg={4}>
                     <Card sx={{ p: 2, height: 470 }}>
                         <Stack direction="row" sx={{ alignItems: "center", justifyContent: "space-between" }} >
                             <Typography gutterBottom variant="h5">

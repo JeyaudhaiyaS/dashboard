@@ -12,7 +12,7 @@ export const theme = createTheme({
     typography: {
         fontFamily: ['Poppins', 'sans-serif'].join(''),
         h4: {
-            fontSize: 30,
+            fontSize: 24,
             fontWeight: 600
         },
         h5: {
